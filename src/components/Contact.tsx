@@ -26,12 +26,18 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    // Create mailto link with form data
+    const subject = `Contact from ${formData.name} - Portfolio Website`;
+    const body = `Name: ${formData.name}
+Email: ${formData.email}
+Message: ${formData.message}`;
+    
+    const mailtoLink = `mailto:shashvatt68@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink, '_blank');
 
     toast({
       title: "Message Sent Successfully!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
+      description: "Your default email client has been opened. Please send the email to complete your message.",
     });
 
     setFormData({ name: '', email: '', message: '' });

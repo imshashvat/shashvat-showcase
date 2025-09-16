@@ -58,6 +58,18 @@ const Skills = () => {
         { name: 'Linux' },
         { name: 'Docker' }
       ]
+    },
+    {
+      title: 'AI & Emerging Tech',
+      icon: Code2,
+      color: 'primary',
+      skills: [
+        { name: 'Gen AI' },
+        { name: 'Machine Learning' },
+        { name: 'Prompt Engineering' },
+        { name: 'AI Integration' },
+        { name: 'ChatGPT/LLMs' }
+      ]
     }
   ];
 

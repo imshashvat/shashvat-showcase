@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
+import HireMeDialog from './HireMeDialog';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,6 +62,10 @@ const Header = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
+            <div className="flex items-center gap-3 ml-4">
+              <HireMeDialog />
+              <ThemeToggle />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -85,6 +91,10 @@ const Header = () => {
                     {item.name}
                   </button>
                 ))}
+                <div className="flex items-center gap-3 pt-4 border-t border-border/20">
+                  <HireMeDialog />
+                  <ThemeToggle />
+                </div>
               </div>
             </div>
           </div>

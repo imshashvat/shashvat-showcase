@@ -54,15 +54,15 @@ const About = () => {
                 <div className="border-l-2 border-primary/30 pl-6 relative">
                   <div className="absolute -left-2 top-0 w-4 h-4 bg-primary rounded-full"></div>
                   <h4 className="font-semibold text-foreground">Computer Science Engineering</h4>
-                  <p className="text-sm text-muted-foreground">Bachelor's Degree</p>
-                  <p className="text-sm text-muted-foreground">2021 - 2025</p>
+                  <p className="text-sm text-muted-foreground">B.Tech Section B</p>
+                  <p className="text-sm text-muted-foreground">2024 - 2028</p>
                 </div>
                 
                 <div className="border-l-2 border-accent/30 pl-6 relative">
                   <div className="absolute -left-2 top-0 w-4 h-4 bg-accent rounded-full"></div>
                   <h4 className="font-semibold text-foreground">Higher Secondary</h4>
                   <p className="text-sm text-muted-foreground">Science Stream</p>
-                  <p className="text-sm text-muted-foreground">2019 - 2021</p>
+                  <p className="text-sm text-muted-foreground">2021 - 2023</p>
                 </div>
               </div>
             </div>
