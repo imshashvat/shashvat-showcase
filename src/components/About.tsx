@@ -54,7 +54,7 @@ const About = () => {
                 <div className="border-l-2 border-primary/30 pl-6 relative">
                   <div className="absolute -left-2 top-0 w-4 h-4 bg-primary rounded-full"></div>
                   <h4 className="font-semibold text-foreground">Computer Science Engineering</h4>
-                  <p className="text-sm text-muted-foreground">B.Tech Section B</p>
+                  <p className="text-sm text-muted-foreground">B.Tech</p>
                   <p className="text-sm text-muted-foreground">2024 - 2028</p>
                 </div>
                 
