@@ -16,11 +16,11 @@ const Skills = () => {
       icon: Globe,
       color: 'primary',
       skills: [
-        { name: 'HTML5', level: 90 },
-        { name: 'CSS3', level: 85 },
-        { name: 'JavaScript', level: 88 },
-        { name: 'React.js', level: 85 },
-        { name: 'TypeScript', level: 80 }
+        { name: 'HTML5' },
+        { name: 'CSS3' },
+        { name: 'JavaScript' },
+        { name: 'React.js' },
+        { name: 'TypeScript' }
       ]
     },
     {
@@ -28,11 +28,11 @@ const Skills = () => {
       icon: Server,
       color: 'accent',
       skills: [
-        { name: 'Node.js', level: 82 },
-        { name: 'Express.js', level: 80 },
-        { name: 'MongoDB', level: 75 },
-        { name: 'MySQL', level: 78 },
-        { name: 'REST APIs', level: 85 }
+        { name: 'Node.js' },
+        { name: 'Express.js' },
+        { name: 'MongoDB' },
+        { name: 'MySQL' },
+        { name: 'REST APIs' }
       ]
     },
     {
@@ -40,11 +40,11 @@ const Skills = () => {
       icon: Code2,
       color: 'primary',
       skills: [
-        { name: 'Python', level: 90 },
-        { name: 'C++', level: 85 },
-        { name: 'C', level: 88 },
-        { name: 'Java', level: 75 },
-        { name: 'Data Structures', level: 85 }
+        { name: 'Python' },
+        { name: 'C++' },
+        { name: 'C' },
+        { name: 'Java' },
+        { name: 'Data Structures' }
       ]
     },
     {
@@ -52,11 +52,11 @@ const Skills = () => {
       icon: Terminal,
       color: 'accent',
       skills: [
-        { name: 'Git & GitHub', level: 88 },
-        { name: 'VS Code', level: 95 },
-        { name: 'Figma', level: 70 },
-        { name: 'Linux', level: 75 },
-        { name: 'Docker', level: 65 }
+        { name: 'Git & GitHub' },
+        { name: 'VS Code' },
+        { name: 'Figma' },
+        { name: 'Linux' },
+        { name: 'Docker' }
       ]
     }
   ];
@@ -68,8 +68,8 @@ const Skills = () => {
       <div className="container mx-auto px-6 relative z-10">
         <h2 className="section-title">Skills & Expertise</h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {skillCategories.map((category, categoryIndex) => (
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {skillCategories.map((category) => (
             <div key={category.title} className="skill-card">
               <div className="flex items-center gap-3 mb-6">
                 <div className={`p-3 rounded-xl ${
@@ -82,26 +82,13 @@ const Skills = () => {
                 <h3 className="text-xl font-semibold">{category.title}</h3>
               </div>
               
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name} className="group">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-foreground">{skill.name}</span>
-                      <span className="text-xs text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-muted rounded-full overflow-hidden">
-                      <div 
-                        className={`h-full rounded-full transition-all duration-1000 ease-out ${
-                          category.color === 'primary' 
-                            ? 'bg-gradient-to-r from-primary to-primary-glow' 
-                            : 'bg-gradient-to-r from-accent to-accent-glow'
-                        }`}
-                        style={{ 
-                          width: `${skill.level}%`,
-                          transitionDelay: `${(categoryIndex * 0.2) + (skillIndex * 0.1)}s`
-                        }}
-                      ></div>
-                    </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {category.skills.map((skill) => (
+                  <div 
+                    key={skill.name} 
+                    className="glass-card p-4 text-center hover:scale-105 transition-transform duration-300"
+                  >
+                    <span className="text-sm font-medium text-foreground">{skill.name}</span>
                   </div>
                 ))}
               </div>

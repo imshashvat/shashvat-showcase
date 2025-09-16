@@ -42,14 +42,14 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'shashvat@example.com',
-      href: 'mailto:shashvat@example.com'
+      value: 'shashvatt68@gmail.com',
+      href: 'mailto:shashvatt68@gmail.com'
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+91 98765 43210',
-      href: 'tel:+919876543210'
+      value: '+91 7459071817',
+      href: 'tel:+917459071817'
     },
     {
       icon: MapPin,
@@ -63,19 +63,13 @@ const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com',
+      href: 'https://github.com/imshashvat',
       color: 'hover:text-primary'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com',
-      color: 'hover:text-blue-400'
-    },
-    {
-      icon: Twitter,
-      label: 'Twitter',
-      href: 'https://twitter.com',
+      href: 'https://www.linkedin.com/in/shashvat-tripathi-6518aa332/',
       color: 'hover:text-blue-400'
     }
   ];
