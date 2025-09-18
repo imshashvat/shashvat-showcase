@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
+import { MessageCircle, X, Send, UserCheck, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -28,6 +28,41 @@ const Chatbot = () => {
       keywords: ['hello', 'hi', 'hey', 'greetings'],
       response: "Hi there! 👋 I'm Shashvat's personal assistant. I can help you learn more about him, his skills, projects, and experience. What would you like to know?",
       followUp: ['Tell me about Shashvat', 'What are his skills?', 'Show me his projects']
+    },
+    {
+      keywords: ['who created you', 'who made you', 'who built you', 'who developed you', 'your creator', 'your developer'],
+      response: "I was created by Shashvat Tripathi! He's the talented developer behind this website and my programming. He built me to help visitors learn more about his skills, projects, and experience. Pretty cool, right? 😊",
+      followUp: ['Tell me about Shashvat', 'What are his skills?', 'What projects has he built?']
+    },
+    {
+      keywords: ['who owns this site', 'whose website', 'site owner', 'website owner', 'who owns this website'],
+      response: "This website belongs to Shashvat Tripathi! He's a passionate Computer Science Engineering student who designed and developed this entire portfolio to showcase his skills and projects. Everything you see here is his creation! 🌟",
+      followUp: ['Tell me about Shashvat', 'What technologies did he use?', 'Show me his projects']
+    },
+    {
+      keywords: ['what is your name', 'your name', 'who are you', 'introduce yourself'],
+      response: "I'm Shashvat's personal AI assistant! 🤖 I don't have a specific name, but you can just call me Assistant. I was created by Shashvat Tripathi to help visitors learn more about him and answer any questions you might have about his work, skills, or projects.",
+      followUp: ['Tell me about Shashvat', 'What can you help me with?', 'What are his skills?']
+    },
+    {
+      keywords: ['how are you', 'how do you feel', 'what\'s up', 'how\'s it going'],
+      response: "I'm doing great, thank you for asking! 😊 I'm here and ready to help you learn more about Shashvat Tripathi. I love talking about his amazing projects and skills. How can I assist you today?",
+      followUp: ['Tell me about Shashvat', 'What projects has he built?', 'What are his skills?']
+    },
+    {
+      keywords: ['what can you do', 'your capabilities', 'help me', 'what do you know'],
+      response: "I'm here to help you learn everything about Shashvat Tripathi! I can tell you about:\n• His technical skills and expertise\n• His amazing projects and achievements\n• His education and background\n• How to contact him for opportunities\n• His GitHub and social profiles\n\nJust ask me anything you'd like to know! 🚀",
+      followUp: ['Tell me about his skills', 'Show me his projects', 'How can I contact him?']
+    },
+    {
+      keywords: ['joke', 'funny', 'humor', 'make me laugh'],
+      response: "Here's a developer joke for you! 😄\n\nWhy do programmers prefer dark mode?\nBecause light attracts bugs! 🐛\n\nShashvat probably appreciates good coding humor too - he's spent plenty of time debugging code while building his projects!",
+      followUp: ['Tell me about his projects', 'What programming languages does he know?', 'Tell me about Shashvat']
+    },
+    {
+      keywords: ['weather', 'time', 'date', 'day'],
+      response: "I'm focused on helping you learn about Shashvat Tripathi, so I don't have access to real-time information like weather or current time. But I can tell you that Shashvat built a Weather Dashboard project that provides real-time weather information! Want to know more about his projects? 🌤️",
+      followUp: ['Tell me about his projects', 'What is the Weather Dashboard?', 'What other projects has he built?']
     },
     {
       keywords: ['who', 'about', 'tell me about', 'introduce'],
@@ -83,6 +118,16 @@ const Chatbot = () => {
       keywords: ['thank', 'thanks', 'bye', 'goodbye'],
       response: "You're welcome! 😊 Thanks for learning about Shashvat. If you have any more questions or want to get in touch with him, feel free to ask. Have a great day!",
       followUp: ['Contact Shashvat', 'Tell me about his projects', 'What are his skills?']
+    },
+    {
+      keywords: ['are you real', 'are you human', 'are you ai', 'artificial intelligence'],
+      response: "I'm a chatbot created by Shashvat Tripathi! 🤖 I'm not human, but I'm programmed with lots of information about Shashvat to help answer your questions. Think of me as his digital assistant - I know all about his skills, projects, and achievements!",
+      followUp: ['Who created you?', 'Tell me about Shashvat', 'What are his skills?']
+    },
+    {
+      keywords: ['love', 'like', 'favorite', 'best'],
+      response: "What I love most is talking about Shashvat's passion for technology! 💝 He absolutely loves coding, problem-solving, and creating innovative solutions. His favorite technologies include React, Node.js, and he's really excited about AI and emerging tech. What would you like to know about his interests?",
+      followUp: ['What technologies does he use?', 'Tell me about his projects', 'What are his skills?']
     }
   ];
 
@@ -99,7 +144,7 @@ const Chatbot = () => {
     // Default response if no match found
     return {
       keywords: ['default'],
-      response: "I'd love to help you learn more about Shashvat! You can ask me about his skills, projects, education, contact information, or anything else you'd like to know about him.",
+      response: "That's an interesting question! 🤔 While I'm specifically designed to help you learn about Shashvat Tripathi, I'd love to tell you more about him! You can ask me about his skills, projects, education, contact information, or anything else you'd like to know about this talented developer.",
       followUp: ['Tell me about Shashvat', 'What are his skills?', 'Show me his projects', 'How can I contact him?']
     };
   };
@@ -178,7 +223,7 @@ const Chatbot = () => {
           <div className="bg-gradient-primary p-4 text-white">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                <Bot size={16} />
+                <UserCheck size={16} />
               </div>
               <div>
                 <h3 className="font-semibold">Shashvat's Assistant</h3>
@@ -196,7 +241,7 @@ const Chatbot = () => {
               >
                 {message.isBot && (
                   <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Bot size={16} className="text-primary" />
+                    <UserCheck size={16} className="text-primary" />
                   </div>
                 )}
                 <div
@@ -219,7 +264,7 @@ const Chatbot = () => {
             {isTyping && (
               <div className="flex gap-3 justify-start">
                 <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
-                  <Bot size={16} className="text-primary" />
+                  <UserCheck size={16} className="text-primary" />
                 </div>
                 <div className="bg-card border border-border/50 p-3 rounded-lg">
                   <div className="flex gap-1">
