@@ -24,8 +24,8 @@ const Footer = () => {
 
   return (
     <footer className="relative border-t border-border/50 bg-card/20 backdrop-blur-sm">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-3 gap-8 items-start">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start">
           {/* Brand Section */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold gradient-text">Shashvat Tripathi</h3>
@@ -68,7 +68,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-border/50 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-border/50 mt-6 sm:mt-8 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <span>© {currentYear} Shashvat Tripathi. Made with</span>
             <Heart className="h-4 w-4 text-red-500 animate-pulse" />

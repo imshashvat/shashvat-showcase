@@ -84,14 +84,14 @@ Message: ${formData.message}`;
     <section id="contact" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent"></div>
       
-      <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <h2 className="section-title">Get In Touch</h2>
-        <p className="text-center text-muted-foreground mb-16 text-lg max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground mb-12 md:mb-16 text-base md:text-lg max-w-2xl mx-auto">
           Have a project in mind or want to collaborate? I'd love to hear from you. 
           Let's create something amazing together!
         </p>
         
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="glass-card">

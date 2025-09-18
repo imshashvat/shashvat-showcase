@@ -25,13 +25,13 @@ const Hero = () => {
       <div className="absolute top-40 right-20 w-16 h-16 bg-accent/10 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
       <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-primary/15 rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[calc(100vh-4rem)]">
           {/* Profile Image */}
           <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-primary rounded-full blur-2xl opacity-30 animate-glow"></div>
-              <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-elegant">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-elegant">
                 <img
                   src={profilePhoto}
                   alt="Shashvat Tripathi - Profile"
@@ -51,16 +51,16 @@ const Hero = () => {
               <h2 className="text-xl md:text-2xl text-primary font-medium mb-4">
                 Hi, I'm
               </h2>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 gradient-text">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 gradient-text leading-tight">
                 Shashvat Tripathi
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed max-w-2xl">
                 CSE Student & Developer passionate about creating innovative solutions 
                 and building amazing web experiences.
               </p>
               
               {/* Call-to-Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-6 sm:mb-8">
                 <Button className="hero-button group">
                   <Download className="mr-2 h-5 w-5 transition-transform group-hover:scale-110" />
                   Download Resume

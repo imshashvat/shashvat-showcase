@@ -63,14 +63,14 @@ const Projects = () => {
     <section id="projects" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <h2 className="section-title">Featured Projects</h2>
-        <p className="text-center text-muted-foreground mb-16 text-lg max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground mb-12 md:mb-16 text-base md:text-lg max-w-2xl mx-auto">
           Here are some of my recent projects that showcase my skills in web development, 
           programming, and problem-solving.
         </p>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <div 
               key={project.title} 

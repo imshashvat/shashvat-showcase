@@ -77,10 +77,10 @@ const Skills = () => {
     <section id="skills" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent"></div>
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <h2 className="section-title">Skills & Expertise</h2>
         
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {skillCategories.map((category) => (
             <div key={category.title} className="skill-card">
               <div className="flex items-center gap-3 mb-6">
@@ -111,7 +111,7 @@ const Skills = () => {
         {/* Additional Skills Icons */}
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-semibold mb-8 gradient-text">Technologies I Work With</h3>
-          <div className="flex flex-wrap justify-center items-center gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
             {[
               { icon: Code2, name: 'Programming' },
               { icon: Database, name: 'Databases' },
