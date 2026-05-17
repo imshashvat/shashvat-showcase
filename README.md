@@ -1,73 +1,149 @@
-# Welcome to your Lovable project
+# Shashvat Tripathi — Portfolio
 
-## Project info
+> **BUILD · SOLVE · IMPACT**
 
-**URL**: https://lovable.dev/projects/94ba3091-9425-43bf-a0eb-ee788999c6e3
+A premium, dark-themed developer portfolio built with React + TypeScript + Vite. Showcasing AI/ML projects, full-stack skills, and an interactive AI assistant chatbot.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Live Portfolio
 
-**Use Lovable**
+**[→ shashvat.dev](https://shashvat.dev)** *(deploy link)*
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/94ba3091-9425-43bf-a0eb-ee788999c6e3) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## ✨ Features
 
-**Use your preferred IDE**
+| Feature | Description |
+|---|---|
+| 🎨 **Terminal Holographic UI** | Deep black + vivid violet design with glassmorphism cards |
+| ⌨️ **Typewriter Animation** | Kinetic role-cycling effect in the hero section |
+| 🤖 **AI Chatbot** | Smart assistant that answers questions about projects, skills & contact |
+| 🛡️ **SafeHer Project** | AI-powered women's safety platform showcase |
+| 📚 **CampusCache Project** | Student resource library platform |
+| 🔍 **Fake News Detector** | Hybrid multimodal AI system showcase |
+| 📄 **Resume Download** | One-click PDF resume download |
+| 💬 **Hire Me Dialog** | Professional project inquiry form |
+| 📱 **Fully Responsive** | Mobile-first, works on all screen sizes |
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🛠️ Tech Stack
 
-Follow these steps:
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS + Custom Design System
+- **UI Components**: shadcn/ui
+- **Fonts**: Space Grotesk + JetBrains Mono + Inter
+- **Icons**: Lucide React
+- **Routing**: React Router DOM
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🎨 Design System
 
-# Step 3: Install the necessary dependencies.
-npm i
+The portfolio uses a **"Terminal Holographic"** design language:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+- **Primary Color**: Vivid Violet — `hsl(270 80% 62%)`
+- **Background**: Deep Black — `hsl(240 10% 4%)`
+- **Accent**: Bright Cyan — `hsl(190 100% 60%)`
+- **Typography**: Space Grotesk (headings) + JetBrains Mono (code) + Inter (body)
+- **Effects**: Glassmorphism, neon glow borders, particle grid, floating badges
+
+---
+
+## 🏗️ Featured Projects
+
+### 🛡️ SafeHer — AI-Powered Women's Safety Platform
+- Real-time AI risk prediction using ML models
+- SOS emergency alerts + live location sharing
+- Community reporting map + trusted contact notifications
+- **Stack**: React Native, Python, PyTorch, Supabase, Expo
+
+### 📚 CampusCache — Student Resource Library
+- Branch-specific resource libraries for 500+ students
+- Contributor leaderboard with fair point system
+- File upload, download stats, cross-branch sharing
+- **Stack**: React, TypeScript, Supabase, PostgreSQL, Tailwind
+
+### 🔍 Fake News Detection System — Hybrid Multimodal AI
+- BERT + CNN + XGBoost + Rule-based hybrid model (90%+ accuracy)
+- SHAP-based explainable AI with confidence scores
+- Human-in-the-loop feedback system
+- **Stack**: Python, PyTorch, scikit-learn, BERT, SHAP
+
+---
+
+## 🤖 AI Portfolio Chatbot
+
+The built-in chatbot answers questions about:
+- All 3 projects in detail
+- Skills and tech stack
+- Education and background
+- Contact info and availability
+- Resume download guidance
+
+Features: typing indicator, quick-question chips, expand/collapse, unread badge, reset chat.
+
+---
+
+## 🏃 Running Locally
+
+```bash
+# Clone the repository
+git clone https://github.com/imshashvat/shashvat-showcase.git
+
+# Navigate to the project
+cd shashvat-showcase
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 📁 Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+src/
+├── assets/
+│   ├── profile-photo.jpeg     # Hero portrait photo
+│   └── Shashvat_Resume.pdf    # Downloadable resume
+├── components/
+│   ├── Header.tsx             # Fixed nav with active section detection
+│   ├── Hero.tsx               # Typewriter + portrait + stats + journey
+│   ├── About.tsx              # Terminal animation + bio + education
+│   ├── Skills.tsx             # Bento-grid skill categories
+│   ├── Projects.tsx           # 3 real projects with bento layout
+│   ├── Contact.tsx            # Split contact form + info panel
+│   ├── Footer.tsx             # Minimal footer with quick links
+│   ├── Chatbot.tsx            # Smart AI assistant chatbot
+│   └── HireMeDialog.tsx       # Project inquiry dialog
+├── pages/
+│   └── Index.tsx              # Main page assembly
+└── index.css                  # Complete design system
+```
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 📬 Contact
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Email**: [shashvatt68@gmail.com](mailto:shashvatt68@gmail.com)
+- **Phone**: +91 7459071817
+- **GitHub**: [github.com/imshashvat](https://github.com/imshashvat)
+- **LinkedIn**: [linkedin.com/in/shashvat-tripathi-6518aa332](https://www.linkedin.com/in/shashvat-tripathi-6518aa332/)
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/94ba3091-9425-43bf-a0eb-ee788999c6e3) and click on Share -> Publish.
+## 📄 License
 
-## Can I connect a custom domain to my Lovable project?
+MIT © 2025 Shashvat Tripathi
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+*"The best systems combine intelligence with integrity."*

@@ -1,110 +1,190 @@
-import { useState } from 'react';
-import { Download, Mail, Github, Linkedin, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import profilePhoto from '@/assets/profile-photo.jpeg';
+import { useState, useEffect } from 'react';
+import { Download, Mail, Github, Linkedin, ArrowRight, ArrowDown } from 'lucide-react';
+import techImage from '@/assets/Tech_Image_Without_Text.png';
+import resumePdf from '@/assets/Shashvat_Resume.pdf';
+
+const roles = ['AI/ML Builder', 'Full-Stack Developer', 'Problem Solver', 'CSE Student'];
 
 const Hero = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [charIndex, setCharIndex] = useState(0);
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+    let timeout: ReturnType<typeof setTimeout>;
+    if (!isDeleting && charIndex < currentRole.length) {
+      timeout = setTimeout(() => {
+        setDisplayText(currentRole.slice(0, charIndex + 1));
+        setCharIndex(c => c + 1);
+      }, 85);
+    } else if (!isDeleting && charIndex === currentRole.length) {
+      timeout = setTimeout(() => setIsDeleting(true), 2200);
+    } else if (isDeleting && charIndex > 0) {
+      timeout = setTimeout(() => {
+        setDisplayText(currentRole.slice(0, charIndex - 1));
+        setCharIndex(c => c - 1);
+      }, 45);
+    } else {
+      setIsDeleting(false);
+      setRoleIndex(i => (i + 1) % roles.length);
     }
-  };
+    return () => clearTimeout(timeout);
+  }, [charIndex, isDeleting, roleIndex]);
+
+  const scrollToContact = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToAbout = () => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
-      {/* Background Animation */}
-      <div className="absolute inset-0 bg-gradient-hero">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5"></div>
-      </div>
-      
-      {/* Floating Animation Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-float"></div>
-      <div className="absolute top-40 right-20 w-16 h-16 bg-accent/10 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-      <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-primary/15 rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-background">
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[calc(100vh-4rem)]">
-          {/* Profile Image */}
-          <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-primary rounded-full blur-2xl opacity-30 animate-glow"></div>
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-elegant">
-                <img
-                  src={profilePhoto}
-                  alt="Shashvat Tripathi - Profile"
-                  className={`w-full h-full object-cover transition-all duration-700 ${
-                    imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-                  }`}
-                  onLoad={() => setImageLoaded(true)}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
-              </div>
-            </div>
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          RIGHT PANEL — Image (only visible on lg+)
+          The image sits on the right half. A gradient
+          on its LEFT edge fades it into the dark background.
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <div className="absolute right-0 top-0 h-full w-[58%] hidden lg:block pointer-events-none select-none">
+        {/* The image itself */}
+        <img
+          src={techImage}
+          alt="Shashvat Tripathi"
+          className="w-full h-full object-cover object-left"
+          style={{ filter: 'brightness(0.82) saturate(1.05)' }}
+        />
+
+        {/* ← LEFT EDGE: fade from background color → transparent (the key transition) */}
+        <div
+          className="absolute inset-y-0 left-0 w-[45%]"
+          style={{
+            background: 'linear-gradient(to right, hsl(240 10% 4%) 0%, hsl(240 10% 4% / 0.92) 25%, hsl(240 10% 4% / 0.55) 60%, transparent 100%)',
+          }}
+        />
+
+        {/* TOP fade — blends into header */}
+        <div
+          className="absolute top-0 inset-x-0 h-28"
+          style={{ background: 'linear-gradient(to bottom, hsl(240 10% 4%) 0%, transparent 100%)' }}
+        />
+
+        {/* BOTTOM fade — blends into About section */}
+        <div
+          className="absolute bottom-0 inset-x-0 h-36"
+          style={{ background: 'linear-gradient(to top, hsl(240 10% 4%) 0%, transparent 100%)' }}
+        />
+
+        {/* RIGHT edge — subtle fade at far right */}
+        <div
+          className="absolute inset-y-0 right-0 w-16"
+          style={{ background: 'linear-gradient(to left, hsl(240 10% 4% / 0.4) 0%, transparent 100%)' }}
+        />
+      </div>
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          LEFT PANEL — Text content (dark background)
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <div className="relative z-10 container mx-auto px-6 sm:px-10 lg:px-14 pt-28 pb-32">
+        <div className="max-w-lg xl:max-w-xl">
+
+          {/* Status pill */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-8 border border-white/8 bg-white/[0.04]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[hsl(142_65%_52%)] animate-pulse" />
+            <span className="font-mono text-xs text-white/50 tracking-wide">Available for Internships & Projects</span>
           </div>
 
-          {/* Hero Content */}
-          <div className="order-1 lg:order-2 text-center lg:text-left">
-            <div className="animate-fadeInUp">
-              <h2 className="text-xl md:text-2xl text-primary font-medium mb-4">
-                Hi, I'm
-              </h2>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 gradient-text leading-tight">
-                Shashvat Tripathi
-              </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed max-w-2xl">
-                CSE Student & Developer passionate about creating innovative solutions 
-                and building amazing web experiences.
-              </p>
-              
-              {/* Call-to-Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-6 sm:mb-8">
-                <Button className="hero-button group">
-                  <Download className="mr-2 h-5 w-5 transition-transform group-hover:scale-110" />
-                  Download Resume
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="border-primary/50 text-primary hover:bg-primary/10 hover:border-primary transition-all duration-300"
-                  onClick={scrollToContact}
-                >
-                  <Mail className="mr-2 h-5 w-5" />
-                  Contact Me
-                </Button>
-              </div>
+          {/* Name */}
+          <h1 className="font-space font-extrabold mb-5 tracking-tight leading-[1.03]">
+            <span className="block text-5xl sm:text-6xl lg:text-[3.8rem] xl:text-7xl text-white/95">Shashvat</span>
+            <span
+              className="block text-5xl sm:text-6xl lg:text-[3.8rem] xl:text-7xl"
+              style={{
+                background: 'linear-gradient(120deg, hsl(270 70% 72%) 0%, hsl(195 100% 62%) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Tripathi
+            </span>
+          </h1>
 
-              {/* Social Links */}
-              <div className="flex justify-center lg:justify-start gap-6">
-                <a
-                  href="https://github.com/imshashvat"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-110 transform"
-                >
-                  <Github size={28} />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/shashvat-tripathi-6518aa332/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-110 transform"
-                >
-                  <Linkedin size={28} />
-                </a>
-                <a
-                  href="mailto:shashvatt68@gmail.com"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-110 transform"
-                >
-                  <Mail size={28} />
-                </a>
+          {/* Typewriter */}
+          <div className="flex items-center gap-2.5 mb-6">
+            <span className="font-mono text-sm text-[hsl(270_55%_58%)] select-none">$</span>
+            <span className="font-mono text-lg sm:text-xl text-white/75">
+              {displayText}
+              <span className="inline-block w-[2px] h-[1.1em] bg-[hsl(270_70%_68%)] ml-0.5 align-middle animate-[blink_1s_step-end_infinite]" />
+            </span>
+          </div>
+
+          {/* Bio */}
+          <p className="font-inter text-white/50 text-base leading-relaxed mb-2 max-w-sm">
+            Building AI that{' '}
+            <span className="text-[hsl(270_65%_75%)] font-medium">protects</span>,{' '}
+            <span className="text-[hsl(190_90%_60%)] font-medium">empowers</span> and{' '}
+            <span className="text-[hsl(330_70%_65%)] font-medium">creates impact</span>.
+          </p>
+          <p className="font-mono text-[11px] text-white/20 tracking-[0.22em] mb-10">BUILD · SOLVE · IMPACT</p>
+
+          {/* Stats */}
+          <div className="flex gap-6 mb-10">
+            {[
+              { value: '4+', label: 'Projects' },
+              { value: '10+', label: 'Technologies' },
+              { value: '∞', label: 'Curiosity' },
+            ].map(s => (
+              <div key={s.label}>
+                <div className="font-space text-2xl font-bold text-white/90">{s.value}</div>
+                <div className="font-inter text-xs text-white/30 mt-0.5">{s.label}</div>
               </div>
-            </div>
+            ))}
+          </div>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap gap-3 mb-10">
+            <a href={resumePdf} download="Shashvat_Resume.pdf">
+              <button className="btn-primary flex items-center gap-2 group text-sm">
+                <Download className="w-4 h-4" />
+                Download Resume
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+              </button>
+            </a>
+            <button onClick={scrollToContact} className="btn-outline flex items-center gap-2 text-sm">
+              <Mail className="w-4 h-4" />
+              Contact Me
+            </button>
+          </div>
+
+          {/* Socials */}
+          <div className="flex items-center gap-3">
+            <span className="font-inter text-[11px] text-white/20">Find me</span>
+            {[
+              { href: 'https://github.com/imshashvat', Icon: Github, label: 'GitHub' },
+              { href: 'https://www.linkedin.com/in/shashvat-tripathi-6518aa332/', Icon: Linkedin, label: 'LinkedIn' },
+              { href: 'mailto:shashvatt68@gmail.com', Icon: Mail, label: 'Email' },
+            ].map(({ href, Icon, label }) => (
+              <a key={label} href={href}
+                target={href.startsWith('mailto') ? undefined : '_blank'}
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="w-9 h-9 flex items-center justify-center rounded-xl border border-white/8 text-white/35 hover:text-white/80 hover:border-white/20 hover:bg-white/5 transition-all duration-300"
+              >
+                <Icon className="w-4 h-4" />
+              </a>
+            ))}
           </div>
         </div>
       </div>
+
+      {/* Scroll hint */}
+      <button
+        onClick={scrollToAbout}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/20 hover:text-white/40 transition-colors duration-300"
+        aria-label="Scroll to about"
+      >
+        <span className="font-mono text-[10px] tracking-[0.18em] uppercase">Scroll</span>
+        <ArrowDown className="w-4 h-4 animate-bounce" />
+      </button>
     </section>
   );
 };

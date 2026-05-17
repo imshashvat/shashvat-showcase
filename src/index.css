@@ -2,217 +2,419 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ═══════════════════════════════════════════════════════════
+   SHASHVAT TRIPATHI — Terminal Holographic Design System
+   Palette: Deep Black · Violet · Cyan · Neon
+   Feel: Terminal OS running a holographic display
+═══════════════════════════════════════════════════════════ */
 
 @layer base {
   :root {
-    /* Dark theme portfolio colors */
-    --background: 220 20% 8%;
-    --foreground: 210 40% 98%;
-
-    --card: 220 15% 12%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 220 15% 12%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 217 91% 60%;
-    --primary-foreground: 220 20% 8%;
-    --primary-glow: 217 91% 70%;
-
-    --secondary: 220 15% 18%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 220 15% 15%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 262 83% 58%;
-    --accent-foreground: 210 40% 98%;
-    --accent-glow: 262 83% 68%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 15% 20%;
-    --input: 220 15% 15%;
-    --ring: 217 91% 60%;
-
-    --radius: 12px;
-
-    /* Custom portfolio tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(220 20% 8%) 0%, hsl(220 15% 12%) 50%, hsl(220 20% 8%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(220 15% 14%) 100%);
-    --shadow-elegant: 0 10px 40px -10px hsl(var(--primary) / 0.3);
-    --shadow-card: 0 8px 32px -8px hsl(220 20% 4% / 0.4);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.2);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  /* Light theme variant */
-  .light {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 98%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 217 91% 55%;
-    --primary-foreground: 210 40% 98%;
-    --primary-glow: 217 91% 65%;
-    --secondary: 210 40% 93%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 93%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 262 83% 55%;
-    --accent-foreground: 210 40% 98%;
-    --accent-glow: 262 83% 65%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 88%;
-    --input: 214.3 31.8% 88%;
-    --ring: 217 91% 55%;
-    --radius: 12px;
-    
-    /* Light theme specific gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 50%, hsl(0 0% 100%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(210 40% 96%) 100%);
-    --shadow-elegant: 0 10px 40px -10px hsl(var(--primary) / 0.15);
-    --shadow-card: 0 8px 32px -8px hsl(217 91% 55% / 0.1);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.1);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --sidebar-background: 220 20% 8%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 210 40% 98%;
-    --sidebar-primary-foreground: 220 20% 8%;
-    --sidebar-accent: 220 15% 15%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 214.3 31.8% 91.4%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background:  240 10% 4%;
+    --foreground:  240 5%  93%;
+    --card:        240 8%  7%;
+    --card-foreground: 240 5% 93%;
+    --popover:     240 8%  7%;
+    --popover-foreground: 240 5% 93%;
+    --primary:     270 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary:   240 8%  12%;
+    --secondary-foreground: 240 5% 93%;
+    --muted:       240 8%  12%;
+    --muted-foreground: 240 4% 46%;
+    --accent:      190 100% 55%;
+    --accent-foreground: 240 10% 4%;
+    --destructive: 0 78% 57%;
+    --destructive-foreground: 0 0% 100%;
+    --border:      240 6%  13%;
+    --input:       240 8%  9%;
+    --ring:        270 70% 60%;
+    --radius:      14px;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
 
   body {
-    @apply bg-background text-foreground font-inter;
-    scroll-behavior: smooth;
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    background-color: hsl(240 10% 4%);
+
+    /* Holographic grid — more visible than before */
+    background-image:
+      linear-gradient(hsl(270 65% 55% / 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(270 65% 55% / 0.045) 1px, transparent 1px),
+      radial-gradient(ellipse at 70% 30%, hsl(270 80% 60% / 0.06) 0%, transparent 55%),
+      radial-gradient(ellipse at 20% 80%, hsl(190 100% 55% / 0.04) 0%, transparent 50%);
+    background-size: 52px 52px, 52px 52px, 100% 100%, 100% 100%;
   }
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-background;
-  }
-
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: hsl(240 10% 4%); }
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary/30 rounded-full;
+    background: hsl(270 60% 50% / 0.4);
+    border-radius: 999px;
   }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary/50;
-  }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(270 60% 58% / 0.65); }
+  ::selection { background: hsl(270 70% 60% / 0.38); color: #fff; }
 }
 
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTS
+═══════════════════════════════════════════════════════════ */
 @layer components {
-  .hero-button {
-    @apply relative overflow-hidden bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold;
-    @apply hover:shadow-elegant transform hover:scale-105 transition-all duration-300;
-    @apply before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent;
-    @apply before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700;
+
+  /* ── Section label — monospace, scanline feel ── */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    @apply text-xs tracking-[0.22em] uppercase mb-2;
+    color: hsl(270 60% 60%);
+    position: relative;
+    display: inline-block;
   }
 
-  .glass-card {
-    @apply bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-6;
-    @apply shadow-card hover:shadow-elegant transition-all duration-300;
-    background: var(--gradient-card);
-  }
-
-  .skill-card {
-    @apply glass-card hover:scale-105 hover:border-primary/50;
-    @apply transform transition-all duration-300 cursor-pointer;
-  }
-
-  .project-card {
-    @apply glass-card hover:scale-[1.02] hover:border-primary/30;
-    @apply transform transition-all duration-500;
-  }
-
+  /* ── Section title — holographic gradient shimmer ── */
   .section-title {
-    @apply text-4xl md:text-5xl font-bold text-center mb-16;
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    font-family: 'Space Grotesk', sans-serif;
+    @apply text-4xl md:text-[2.8rem] font-bold mb-5 leading-tight;
+    background: linear-gradient(120deg,
+      hsl(240 5% 97%) 0%,
+      hsl(270 70% 82%) 45%,
+      hsl(190 100% 70%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: holographic-shift 6s linear infinite;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    background: linear-gradient(135deg, hsl(270 70% 65%) 0%, hsl(288 80% 58%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  /* ── Glass Card ── */
+  .glass-card {
+    background: hsl(240 7% 8%);
+    border: 1px solid hsl(240 6% 16%);
+    border-radius: var(--radius);
+    @apply p-6;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
+  /* Holographic top-edge shimmer line */
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      hsl(270 70% 65% / 0.4) 30%,
+      hsl(190 100% 60% / 0.4) 70%,
+      transparent 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
   }
-}
 
-@layer utilities {
-  .font-inter {
-    font-family: 'Inter', sans-serif;
+  .glass-card:hover {
+    border-color: hsl(270 60% 55% / 0.28);
+    box-shadow: 0 8px 32px hsl(240 10% 2% / 0.55), 0 0 0 0.5px hsl(270 70% 60% / 0.08);
   }
 
-  .font-mono {
+  .glass-card:hover::before { opacity: 1; }
+
+  /* ── Neon Card ── */
+  .neon-card {
+    background: hsl(240 7% 7%);
+    border: 1px solid hsl(240 6% 14%);
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .neon-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, hsl(270 70% 65% / 0.5) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .neon-card:hover::before { opacity: 1; }
+  .neon-card:hover {
+    border-color: hsl(270 60% 55% / 0.3);
+    box-shadow: 0 8px 36px hsl(240 10% 2% / 0.5), 0 0 20px hsl(270 60% 55% / 0.06);
+    transform: translateY(-2px);
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    font-family: 'Space Grotesk', sans-serif;
+    @apply relative overflow-hidden px-6 py-3 rounded-xl font-semibold text-white text-sm;
+    background: hsl(270 70% 58%);
+    box-shadow: 0 0 20px hsl(270 70% 55% / 0.3), 0 2px 12px hsl(270 70% 55% / 0.25);
+    transition: all 0.25s ease;
+  }
+
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .btn-primary:hover {
+    background: hsl(270 70% 63%);
+    box-shadow: 0 0 28px hsl(270 70% 55% / 0.45), 0 4px 20px hsl(270 70% 55% / 0.3);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:hover::after { opacity: 1; }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-outline {
+    font-family: 'Space Grotesk', sans-serif;
+    @apply relative px-6 py-3 rounded-xl font-semibold text-sm;
+    color: hsl(240 5% 78%);
+    border: 1px solid hsl(240 6% 22%);
+    background: transparent;
+    transition: all 0.25s ease;
+  }
+
+  .btn-outline:hover {
+    border-color: hsl(270 60% 55% / 0.45);
+    color: white;
+    background: hsl(270 60% 55% / 0.07);
+    box-shadow: 0 0 16px hsl(270 60% 55% / 0.1);
+    transform: translateY(-1px);
+  }
+
+  /* ── Terminal Window — glows on hover ── */
+  .terminal-window {
+    background: hsl(240 10% 5%);
+    border: 1px solid hsl(240 6% 14%);
+    border-radius: var(--radius);
+    overflow: hidden;
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+    transition: border-color 0.3s ease;
+  }
+
+  .terminal-window::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(270 70% 60% / 0.5) 50%, transparent);
+  }
+
+  .terminal-header {
+    background: hsl(240 8% 8%);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border-bottom: 1px solid hsl(240 6% 11%);
+  }
+
+  .terminal-dot { width: 11px; height: 11px; border-radius: 50%; }
+
+  /* ── Section divider — terminal style ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(270 60% 55% / 0.2));
+  }
+
+  .section-divider::after {
+    background: linear-gradient(270deg, transparent, hsl(270 60% 55% / 0.2));
+  }
+
+  /* ── Tags ── */
+  .skill-badge {
+    font-family: 'JetBrains Mono', monospace;
+    @apply text-xs px-3 py-1.5 rounded-lg;
+    background: hsl(270 60% 55% / 0.08);
+    border: 1px solid hsl(270 60% 55% / 0.2);
+    color: hsl(270 65% 75%);
+    transition: all 0.2s ease;
+  }
+
+  .skill-badge:hover {
+    background: hsl(270 60% 55% / 0.15);
+    border-color: hsl(270 60% 55% / 0.4);
+    box-shadow: 0 0 10px hsl(270 60% 55% / 0.15);
+  }
+
+  .tag-cyan {
+    @apply text-xs px-3 py-1 rounded-full;
+    background: hsl(190 100% 55% / 0.07);
+    border: 1px solid hsl(190 100% 55% / 0.2);
+    color: hsl(190 90% 62%);
     font-family: 'JetBrains Mono', monospace;
   }
+
+  /* ── Contact Input ── */
+  .contact-input {
+    @apply w-full px-4 py-3 rounded-xl text-foreground placeholder-muted-foreground outline-none;
+    background: hsl(240 8% 9%);
+    border: 1px solid hsl(240 6% 16%);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .contact-input:focus {
+    border-color: hsl(270 60% 55% / 0.5);
+    box-shadow: 0 0 0 3px hsl(270 60% 55% / 0.07), 0 0 16px hsl(270 60% 55% / 0.08);
+  }
+
+  /* ── Chat Bubbles ── */
+  .chat-bubble-user {
+    background: hsl(270 70% 58%);
+    @apply text-white rounded-2xl rounded-tr-sm px-4 py-3 text-sm max-w-xs ml-auto;
+    box-shadow: 0 0 16px hsl(270 70% 55% / 0.28);
+  }
+
+  .chat-bubble-bot {
+    background: hsl(240 7% 10%);
+    border: 1px solid hsl(240 6% 16%);
+    @apply text-foreground rounded-2xl rounded-tl-sm px-4 py-3 text-sm max-w-sm;
+  }
+
+  /* ── Misc ── */
+  .stat-card {
+    @apply text-center p-4 rounded-xl;
+    background: hsl(240 7% 8%);
+    border: 1px solid hsl(240 6% 13%);
+  }
+
+  .journey-step {
+    @apply flex flex-col items-center gap-2 p-4 rounded-2xl text-center;
+    background: hsl(240 7% 8%);
+    border: 1px solid hsl(240 6% 13%);
+    transition: all 0.25s ease;
+  }
+
+  .journey-step:hover {
+    border-color: hsl(270 60% 55% / 0.28);
+    transform: translateY(-2px);
+  }
+
+  .glow-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: hsl(270 70% 70%);
+    box-shadow: 0 0 6px hsl(270 70% 70% / 0.7), 0 0 14px hsl(270 70% 70% / 0.35);
+    animation: glow-pulse 2.5s ease-in-out infinite alternate;
+  }
+
+  .cursor-blink::after {
+    content: '|';
+    color: hsl(270 70% 68%);
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+  }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════════════════════ */
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-@keyframes glow {
-  from { box-shadow: var(--shadow-glow); }
-  to { box-shadow: 0 0 50px hsl(var(--accent-glow) / 0.3); }
+@keyframes glow-pulse {
+  from { box-shadow: 0 0 6px hsl(270 70% 70% / 0.5), 0 0 12px hsl(270 70% 70% / 0.25); }
+  to   { box-shadow: 0 0 14px hsl(270 70% 70% / 0.8), 0 0 28px hsl(270 70% 70% / 0.4); }
+}
+
+/* Holographic color shift for section titles */
+@keyframes holographic-shift {
+  0%   { background-position: 0% center; }
+  50%  { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fadeInUp {
-  animation: fadeInUp 0.6s ease-out forwards;
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-5px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Scanline scroll */
+@keyframes scanline-scroll {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Utility classes */
+.animate-float         { animation: float 6s ease-in-out infinite; }
+.animate-glow-pulse    { animation: glow-pulse 2.5s ease-in-out infinite alternate; }
+.animate-fadeInUp      { animation: fadeInUp 0.55s ease-out forwards; }
+.animate-fadeInLeft    { animation: fadeInLeft 0.55s ease-out forwards; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, hsl(270 70% 70% / 0.18) 50%, transparent 100%);
+  background-size: 200% auto;
+  animation: shimmer 2.5s linear infinite;
+}
+.animate-spin-slow     { animation: spin-slow 22s linear infinite; }
+.animate-bounce-subtle { animation: bounce-subtle 3s ease-in-out infinite; }
+
+/* Delay utilities */
+.delay-100  { animation-delay: 0.1s; }
+.delay-200  { animation-delay: 0.2s; }
+.delay-300  { animation-delay: 0.3s; }
+.delay-400  { animation-delay: 0.4s; }
+.delay-500  { animation-delay: 0.5s; }
+.delay-700  { animation-delay: 0.7s; }
+.delay-1000 { animation-delay: 1s; }
+
+/* Font helpers */
+.font-space { font-family: 'Space Grotesk', sans-serif; }
+.font-inter { font-family: 'Inter', sans-serif; }
+.font-mono  { font-family: 'JetBrains Mono', monospace; }

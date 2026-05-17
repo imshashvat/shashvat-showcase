@@ -1,160 +1,274 @@
-import { ExternalLink, Github, Code, Globe } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ExternalLink, Github, Shield, BookOpen, Brain, Building2, ArrowRight, Star, Download, Smartphone, Monitor } from 'lucide-react';
+import propertyPreview from '@/assets/property-preview.png';
+
+const projects = [
+  {
+    id: 'safher',
+    title: 'SafeHer',
+    subtitle: 'AI-Powered Women\'s Safety Platform',
+    description: 'A comprehensive safety ecosystem featuring real-time AI risk prediction, SOS emergency alerts, live location sharing with trusted contacts, a community reporting map, and smart safety alerts. Built with a hybrid multimodal ML model.',
+    image: '/safher-preview.png',
+    technologies: ['React Native', 'React.js', 'Python', 'PyTorch', 'Supabase', 'Expo'],
+    githubUrl: 'https://github.com/imshashvat',
+    liveUrl: 'https://safe-her-neon.vercel.app/',
+    webUrl: 'https://safe-her-neon.vercel.app/',
+    featured: true,
+    color: 'hsl(270 80% 72%)',
+    icon: Shield,
+    platforms: ['Web App', 'Android APK'],
+    stats: [
+      { label: 'AI Risk Prediction', value: 'Real-time' },
+      { label: 'Safety Features', value: '6+' },
+      { label: 'Platforms', value: 'Web + App' },
+    ],
+  },
+  {
+    id: 'campuscache',
+    title: 'CampusCache',
+    subtitle: 'Student Resource Library',
+    description: 'A full-stack resource-sharing platform for engineering students. Branch-specific libraries, contributor leaderboards with fair point tracking, file uploads, cross-branch sharing for core subjects, and an AI discovery chatbot.',
+    image: '/campuscache-preview.png',
+    technologies: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind'],
+    githubUrl: 'https://github.com/imshashvat',
+    liveUrl: 'https://campus-cache.vercel.app/',
+    featured: false,
+    color: 'hsl(190 100% 60%)',
+    icon: BookOpen,
+    stats: [{ label: 'Students', value: '500+' }, { label: 'Resources', value: '100+' }],
+  },
+  {
+    id: 'fakenews',
+    title: 'Fake News Detector',
+    subtitle: 'Hybrid Multimodal AI System',
+    description: 'An AI fact-checking system combining BERT, CNN, XGBoost and rule-based models. Features explainable AI with SHAP analysis, confidence scores, and a human-in-the-loop feedback mechanism for continuous improvement.',
+    image: '/fakenews-preview.png',
+    technologies: ['Python', 'BERT', 'CNN', 'XGBoost', 'SHAP', 'PyTorch'],
+    githubUrl: 'https://github.com/imshashvat',
+    liveUrl: '#',
+    featured: false,
+    color: 'hsl(330 80% 65%)',
+    icon: Brain,
+    stats: [{ label: 'Accuracy', value: '90%+' }, { label: 'Models', value: '4 hybrid' }],
+  },
+  {
+    id: 'property',
+    title: 'Property Management',
+    subtitle: 'Simplified. Smart. Secure.',
+    description: 'A full-stack property management platform with tenant management, rent & invoice tracking, maintenance request queues, smart notifications, and a clean dashboard for landlords and property managers.',
+    image: propertyPreview,
+    technologies: ['React', 'Node.js', 'PostgreSQL', 'Supabase', 'TypeScript'],
+    githubUrl: 'https://github.com/imshashvat/property-management',
+    liveUrl: 'https://rental-masterss.vercel.app/',
+    featured: false,
+    color: 'hsl(45 90% 58%)',
+    icon: Building2,
+    stats: [{ label: 'Live', value: 'Deployed' }, { label: 'Type', value: 'Full-Stack' }],
+  },
+];
 
 const Projects = () => {
-  const projects = [
-    {
-      title: 'Amazon Clone',
-      description: 'A full-featured e-commerce platform built with React and Node.js, featuring user authentication, product catalog, shopping cart, and payment integration.',
-      image: '/placeholder-amazon.jpg', // Will be replaced with generated image
-      technologies: ['React.js', 'Node.js', 'MongoDB', 'Express.js', 'CSS3'],
-      liveUrl: 'https://demo.example.com',
-      githubUrl: 'https://github.com/shashvat/amazon-clone',
-      featured: true
-    },
-    {
-      title: 'Portfolio Website',
-      description: 'A responsive portfolio website showcasing my projects and skills, built with modern web technologies and featuring smooth animations.',
-      image: '/placeholder-portfolio.jpg', // Will be replaced with generated image
-      technologies: ['React.js', 'TypeScript', 'Tailwind CSS', 'Vite'],
-      liveUrl: 'https://shashvat-portfolio.com',
-      githubUrl: 'https://github.com/shashvat/portfolio',
-      featured: true
-    },
-    {
-      title: 'Task Management App',
-      description: 'A productive task management application with features like drag-and-drop, categories, deadlines, and collaborative workspaces.',
-      image: '/placeholder-task.jpg', // Will be replaced with generated image
-      technologies: ['React.js', 'Firebase', 'Material-UI', 'JavaScript'],
-      liveUrl: 'https://taskapp.example.com',
-      githubUrl: 'https://github.com/shashvat/task-app',
-      featured: false
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'A beautiful weather application that provides real-time weather information with interactive charts and location-based forecasts.',
-      image: '/placeholder-weather.jpg', // Will be replaced with generated image
-      technologies: ['JavaScript', 'API Integration', 'Chart.js', 'CSS3'],
-      liveUrl: 'https://weather-dash.example.com',
-      githubUrl: 'https://github.com/shashvat/weather-dashboard',
-      featured: false
-    },
-    {
-      title: 'Chat Application',
-      description: 'Real-time chat application with features like private messaging, group chats, file sharing, and emoji support.',
-      image: '/placeholder-chat.jpg', // Will be replaced with generated image
-      technologies: ['React.js', 'Socket.io', 'Node.js', 'MongoDB'],
-      liveUrl: 'https://chatapp.example.com',
-      githubUrl: 'https://github.com/shashvat/chat-app',
-      featured: false
-    },
-    {
-      title: 'Blog Platform',
-      description: 'A modern blogging platform with rich text editor, categories, comments system, and user management features.',
-      image: '/placeholder-blog.jpg', // Will be replaced with generated image
-      technologies: ['Next.js', 'MongoDB', 'TailwindCSS', 'TypeScript'],
-      liveUrl: 'https://blogplatform.example.com',
-      githubUrl: 'https://github.com/shashvat/blog-platform',
-      featured: false
-    }
-  ];
-
   return (
-    <section id="projects" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <h2 className="section-title">Featured Projects</h2>
-        <p className="text-center text-muted-foreground mb-12 md:mb-16 text-base md:text-lg max-w-2xl mx-auto">
-          Here are some of my recent projects that showcase my skills in web development, 
-          programming, and problem-solving.
-        </p>
-        
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
-            <div 
-              key={project.title} 
-              className={`project-card ${project.featured ? 'md:col-span-2 lg:col-span-1' : ''}`}
+    <section id="projects" className="py-24 relative overflow-hidden">
+      <div className="absolute top-1/4 right-0 w-72 h-72 bg-[hsl(270_80%_62%/0.04)] rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <p className="section-label">What I've built</p>
+          <h2 className="section-title">Projects</h2>
+          <p className="font-inter text-white/35 max-w-lg mx-auto text-sm mt-1">
+            Real-world systems built to protect, empower, and educate.
+          </p>
+        </div>
+
+        <div className="max-w-6xl mx-auto space-y-5">
+
+          {/* Featured: SafeHer */}
+          {projects.filter(p => p.featured).map((project) => (
+            <div key={project.id}
+              className="group overflow-hidden rounded-2xl border border-white/8 bg-[hsl(240_8%_7%)] hover:border-[hsl(270_80%_62%/0.3)] transition-all duration-500"
+              style={{ boxShadow: '0 4px 30px hsl(240 10% 2% / 0.4)' }}
             >
-              {/* Project Image Placeholder */}
-              <div className="relative overflow-hidden rounded-xl mb-6 bg-gradient-card h-48 flex items-center justify-center border border-border/20">
-                <div className="text-center">
-                  <Code className="h-12 w-12 text-primary mx-auto mb-2 opacity-50" />
-                  <p className="text-sm text-muted-foreground">Project Screenshot</p>
-                </div>
-                {project.featured && (
-                  <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
-                    Featured
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Image */}
+                <div className="relative h-64 lg:h-auto overflow-hidden">
+                  <img src={project.image} alt={`${project.title} screenshot`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[hsl(240_8%_7%/0.95)] hidden lg:block" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(240_8%_7%/0.8)] to-transparent lg:hidden" />
+                  <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium"
+                    style={{ background: `${project.color}18`, border: `1px solid ${project.color}45`, color: project.color }}>
+                    <Star className="w-3 h-3 fill-current" /> Featured
                   </div>
-                )}
-              </div>
-
-              {/* Project Content */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold text-foreground group-hover:gradient-text transition-all duration-300">
-                  {project.title}
-                </h3>
-                
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <span 
-                      key={tech}
-                      className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full border border-primary/20"
-                    >
-                      {tech}
-                    </span>
-                  ))}
                 </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-3 pt-4">
-                  <Button 
-                    size="sm" 
-                    className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
-                    asChild
-                  >
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      <Globe className="mr-2 h-4 w-4" />
-                      Live Demo
-                    </a>
-                  </Button>
-                  
-                  <Button 
-                    size="sm" 
-                    variant="outline" 
-                    className="flex-1 border-accent/50 text-accent hover:bg-accent/10"
-                    asChild
-                  >
+                {/* Content */}
+                <div className="p-8 lg:p-10 flex flex-col justify-center">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: `${project.color}15`, border: `1px solid ${project.color}30` }}>
+                      <project.icon className="w-5 h-5" style={{ color: project.color }} />
+                    </div>
+                    <div>
+                      <h3 className="font-space text-2xl font-bold text-white">{project.title}</h3>
+                      <p className="font-mono text-xs mt-0.5" style={{ color: project.color }}>{project.subtitle}</p>
+                    </div>
+                  </div>
+                  <p className="font-inter text-white/50 text-sm leading-relaxed mb-5">{project.description}</p>
+                  {/* Platform badges — Web + Mobile */}
+                  {project.id === 'safher' && (
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="font-mono text-[9px] text-white/22 tracking-widest">PLATFORMS</span>
+                      <div className="flex gap-2">
+                        <span className="flex items-center gap-1.5 font-mono text-[10px] px-2.5 py-1 rounded-lg"
+                          style={{ background: 'hsl(270 65% 60% / 0.1)', border: '1px solid hsl(270 65% 60% / 0.3)', color: 'hsl(270 70% 72%)' }}>
+                          <Monitor className="w-3 h-3" /> Web App
+                        </span>
+                        <span className="flex items-center gap-1.5 font-mono text-[10px] px-2.5 py-1 rounded-lg"
+                          style={{ background: 'hsl(142 60% 48% / 0.08)', border: '1px solid hsl(142 60% 48% / 0.3)', color: 'hsl(142 65% 58%)' }}>
+                          <Smartphone className="w-3 h-3" /> Android APK
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  <div className="flex gap-3 mb-5">
+                    {project.stats.map(s => (
+                      <div key={s.label} className="px-3 py-2 rounded-xl" style={{ background: `${project.color}0c`, border: `1px solid ${project.color}1a` }}>
+                        <div className="font-space font-bold text-sm text-white">{s.value}</div>
+                        <div className="font-inter text-[10px] text-white/35 mt-0.5">{s.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {project.technologies.map(tech => (
+                      <span key={tech} className="font-mono text-[11px] px-2.5 py-1 rounded-lg"
+                        style={{ background: `${project.color}0c`, border: `1px solid ${project.color}22`, color: project.color }}>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  {/* Action buttons */}
+                  <div className="flex flex-wrap gap-2.5">
+                    {/* Code */}
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" />
-                      Code
+                      <button className="btn-outline flex items-center gap-2 text-sm px-4 py-2.5">
+                        <Github className="w-4 h-4" /> Code
+                      </button>
                     </a>
-                  </Button>
+
+                    {/* Download APK — Mobile */}
+                    {project.id === 'safher' && (
+                      <a href="/SafeHer.apk" download="SafeHer.apk">
+                        <button className="flex items-center gap-2 text-sm px-4 py-2.5 rounded-xl font-semibold transition-all duration-250 hover:-translate-y-0.5"
+                          style={{
+                            background: 'hsl(142 60% 48% / 0.1)',
+                            border: '1px solid hsl(142 60% 48% / 0.4)',
+                            color: 'hsl(142 65% 58%)',
+                          }}>
+                          <Smartphone className="w-4 h-4" />
+                          <span>Android APK</span>
+                          <Download className="w-3.5 h-3.5 opacity-70" />
+                        </button>
+                      </a>
+                    )}
+
+                    {/* Live Web Demo */}
+                    {project.id === 'safher' && (
+                      <a
+                        href={project.webUrl && project.webUrl !== '#' ? project.webUrl : undefined}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={project.webUrl === '#' ? 'pointer-events-none' : ''}
+                      >
+                        <button
+                          className="btn-primary flex items-center gap-2 text-sm px-4 py-2.5"
+                          style={project.webUrl === '#' ? { opacity: 0.45 } : {}}
+                          title={project.webUrl === '#' ? 'Web demo coming soon' : 'Open web app'}
+                        >
+                          <Monitor className="w-4 h-4" />
+                          Web Demo
+                          {project.webUrl !== '#'
+                            ? <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                            : <span className="font-mono text-[9px] opacity-60 ml-0.5">soon</span>
+                          }
+                        </button>
+                      </a>
+                    )}
+
+                    {/* Generic live demo for other projects */}
+                    {project.id !== 'safher' && project.liveUrl !== '#' && (
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <button className="btn-primary flex items-center gap-2 text-sm px-4 py-2.5">
+                          <ExternalLink className="w-4 h-4" /> Live Demo
+                          <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                        </button>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           ))}
+
+          {/* Non-featured 3-column then 2-column */}
+          <div className="grid md:grid-cols-3 gap-5">
+            {projects.filter(p => !p.featured).map((project) => (
+              <div key={project.id}
+                className="group overflow-hidden rounded-2xl border border-white/8 bg-[hsl(240_8%_7%)] flex flex-col hover:border-[hsl(270_80%_62%/0.25)] transition-all duration-400"
+                style={{ boxShadow: '0 4px 20px hsl(240 10% 2% / 0.35)' }}
+              >
+                {/* Image */}
+                <div className="relative h-44 overflow-hidden flex-shrink-0">
+                  <img src={project.image} alt={`${project.title} screenshot`}
+                    className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-[1.04]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(240_8%_7%)] via-[hsl(240_8%_7%/0.2)] to-transparent" />
+                  <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[10px] font-mono font-medium"
+                    style={{ background: `${project.color}18`, border: `1px solid ${project.color}40`, color: project.color }}>
+                    Live
+                  </div>
+                </div>
+                {/* Content */}
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-start gap-2.5 mb-3">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                      style={{ background: `${project.color}12`, border: `1px solid ${project.color}28` }}>
+                      <project.icon className="w-4 h-4" style={{ color: project.color }} />
+                    </div>
+                    <div>
+                      <h3 className="font-space text-base font-bold text-white leading-tight">{project.title}</h3>
+                      <p className="font-mono text-[10px] mt-0.5" style={{ color: project.color }}>{project.subtitle}</p>
+                    </div>
+                  </div>
+                  <p className="font-inter text-white/45 text-[13px] leading-relaxed mb-4 flex-1">{project.description}</p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {project.technologies.slice(0, 4).map(tech => (
+                      <span key={tech} className="font-mono text-[10px] px-2 py-1 rounded-md"
+                        style={{ background: `${project.color}0a`, border: `1px solid ${project.color}1e`, color: project.color }}>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                      <button className="w-full btn-outline flex items-center justify-center gap-1.5 text-xs py-2.5"><Github className="w-3.5 h-3.5" /> Code</button>
+                    </a>
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                      <button className="w-full btn-primary flex items-center justify-center gap-1.5 text-xs py-2.5"><ExternalLink className="w-3.5 h-3.5" /> Demo</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* View More Projects */}
-        <div className="text-center mt-16">
-          <Button 
-            variant="outline" 
-            size="lg"
-            className="border-primary/50 text-primary hover:bg-primary/10 hover:border-primary"
-            asChild
-          >
-            <a href="https://github.com/imshashvat" target="_blank" rel="noopener noreferrer">
-              <Github className="mr-2 h-5 w-5" />
-              View All Projects on GitHub
-              <ExternalLink className="ml-2 h-4 w-4" />
-            </a>
-          </Button>
+        {/* GitHub CTA */}
+        <div className="text-center mt-12">
+          <a href="https://github.com/imshashvat" target="_blank" rel="noopener noreferrer">
+            <button className="btn-outline flex items-center gap-2 mx-auto text-sm">
+              <Github className="w-4 h-4" />
+              View All on GitHub
+              <ExternalLink className="w-3.5 h-3.5" />
+            </button>
+          </a>
         </div>
       </div>
     </section>

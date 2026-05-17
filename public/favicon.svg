@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background -->
+  <rect width="64" height="64" rx="14" fill="#0a0a12"/>
+  
+  <!-- Subtle grid lines -->
+  <line x1="16" y1="0" x2="16" y2="64" stroke="#7c3aed" stroke-width="0.4" opacity="0.15"/>
+  <line x1="32" y1="0" x2="32" y2="64" stroke="#7c3aed" stroke-width="0.4" opacity="0.15"/>
+  <line x1="48" y1="0" x2="48" y2="64" stroke="#7c3aed" stroke-width="0.4" opacity="0.15"/>
+  <line x1="0" y1="16" x2="64" y2="16" stroke="#7c3aed" stroke-width="0.4" opacity="0.15"/>
+  <line x1="0" y1="32" x2="64" y2="32" stroke="#7c3aed" stroke-width="0.4" opacity="0.15"/>
+  <line x1="0" y1="48" x2="64" y2="48" stroke="#7c3aed" stroke-width="0.4" opacity="0.15"/>
+
+  <!-- Glow circle behind text -->
+  <circle cx="32" cy="32" r="22" fill="url(#glow)" opacity="0.3"/>
+  
+  <!-- Code brackets < > with ST monogram -->
+  <!-- Left bracket -->
+  <path d="M10 24 L4 32 L10 40" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Right bracket -->
+  <path d="M54 24 L60 32 L54 40" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- "ST" text in middle -->
+  <text x="32" y="38" 
+    font-family="'Space Grotesk', 'Segoe UI', sans-serif" 
+    font-size="17" 
+    font-weight="700" 
+    text-anchor="middle" 
+    fill="white" 
+    letter-spacing="-0.5">ST</text>
+
+  <!-- Slash between brackets -->
+  <line x1="30" y1="21" x2="34" y2="43" stroke="url(#slashGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="slashGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+</svg>

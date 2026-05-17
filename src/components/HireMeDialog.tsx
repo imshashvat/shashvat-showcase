@@ -1,194 +1,124 @@
 import { useState } from 'react';
-import { Mail, Send, User, MessageSquare } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { Send, User, Loader2, Briefcase, Clock, DollarSign, MessageSquare, X } from 'lucide-react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { useToast } from '@/hooks/use-toast';
 
 const HireMeDialog = () => {
-  const { toast } = useToast();
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    project: '',
-    budget: '',
-    timeline: '',
-    message: ''
+    name: '', email: '', project: '', budget: '', timeline: '', message: ''
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-
-    // Create mailto link with form data
-    const subject = `Hire Me Request: ${formData.project}`;
-    const body = `Name: ${formData.name}
-Email: ${formData.email}
-Project: ${formData.project}
-Budget: ${formData.budget}
-Timeline: ${formData.timeline}
-Message: ${formData.message}`;
-    
-    const mailtoLink = `mailto:shashvatt68@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.open(mailtoLink, '_blank');
-
-    toast({
-      title: "Hire Me Request Sent!",
-      description: "Your default email client has been opened. Please send the email to complete your request.",
-    });
-
+    await new Promise(r => setTimeout(r, 1200));
+    const subject = `Hire Me — ${formData.project}`;
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\nProject: ${formData.project}\nBudget: ${formData.budget}\nTimeline: ${formData.timeline}\n\n${formData.message}`;
+    window.open(`mailto:shashvatt68@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
     setFormData({ name: '', email: '', project: '', budget: '', timeline: '', message: '' });
     setIsSubmitting(false);
     setIsOpen(false);
   };
 
+  const inputClass = "w-full px-4 py-2.5 rounded-xl font-inter text-sm text-white placeholder-white/25 outline-none bg-[hsl(240_8%_10%)] border border-[hsl(270_80%_62%/0.15)] focus:border-[hsl(270_80%_62%/0.5)] focus:shadow-[0_0_16px_hsl(270_80%_62%/0.1)] transition-all duration-300";
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button 
-          className="hero-button"
-          size="sm"
-        >
-          <User className="mr-2 h-4 w-4" />
+        <button className="btn-primary flex items-center gap-2 text-sm px-5 py-2.5">
+          <Briefcase className="w-4 h-4" />
           Hire Me
-        </Button>
+        </button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] bg-card/95 backdrop-blur-sm border-border/50">
-        <DialogHeader>
-          <DialogTitle className="gradient-text text-2xl">Let's Work Together!</DialogTitle>
-          <DialogDescription className="text-muted-foreground">
-            Tell me about your project and let's create something amazing together.
-          </DialogDescription>
-        </DialogHeader>
-        
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
-                Your Name *
-              </label>
-              <Input
-                id="name"
-                name="name"
-                type="text"
-                required
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="John Doe"
-                className="bg-input border-border/50 focus:border-primary transition-colors duration-300"
-              />
+
+      <DialogContent className="sm:max-w-[520px] p-0 overflow-hidden border-0"
+        style={{ background: 'hsl(240 10% 5%)', border: '1px solid hsl(270 80% 62% / 0.3)', borderRadius: '20px', boxShadow: '0 0 60px hsl(270 80% 62% / 0.15)' }}>
+
+        {/* Header */}
+        <div className="p-6 border-b border-[hsl(270_80%_62%/0.1)]" style={{ background: 'linear-gradient(135deg, hsl(270 80% 62% / 0.08) 0%, transparent 100%)' }}>
+          <div className="flex items-center gap-3 mb-1">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, hsl(270 80% 62%), hsl(290 90% 55%))' }}>
+              <Briefcase className="w-5 h-5 text-white" />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
-                Email Address *
-              </label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                required
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="john@example.com"
-                className="bg-input border-border/50 focus:border-primary transition-colors duration-300"
-              />
+              <DialogTitle className="font-space text-xl font-bold text-white">Let's Work Together</DialogTitle>
+              <DialogDescription className="font-inter text-xs text-white/40 mt-0.5">
+                Tell me about your project and let's build something amazing.
+              </DialogDescription>
+            </div>
+          </div>
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block font-inter text-xs text-white/40 mb-1.5">Your Name *</label>
+              <input name="name" type="text" required value={formData.name} onChange={handleChange} placeholder="John Doe" className={inputClass} />
+            </div>
+            <div>
+              <label className="block font-inter text-xs text-white/40 mb-1.5">Email *</label>
+              <input name="email" type="email" required value={formData.email} onChange={handleChange} placeholder="you@example.com" className={inputClass} />
             </div>
           </div>
 
           <div>
-            <label htmlFor="project" className="block text-sm font-medium mb-2">
-              Project Type *
+            <label className="block font-inter text-xs text-white/40 mb-1.5">
+              <Briefcase className="w-3 h-3 inline mr-1" />Project Type *
             </label>
-            <Input
-              id="project"
-              name="project"
-              type="text"
-              required
-              value={formData.project}
-              onChange={handleInputChange}
-              placeholder="Website, App, API, etc."
-              className="bg-input border-border/50 focus:border-primary transition-colors duration-300"
-            />
+            <input name="project" type="text" required value={formData.project} onChange={handleChange} placeholder="Web App, AI System, Mobile App, API..." className={inputClass} />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3">
             <div>
-              <label htmlFor="budget" className="block text-sm font-medium mb-2">
-                Budget Range
+              <label className="block font-inter text-xs text-white/40 mb-1.5">
+                <DollarSign className="w-3 h-3 inline mr-1" />Budget
               </label>
-              <Input
-                id="budget"
-                name="budget"
-                type="text"
-                value={formData.budget}
-                onChange={handleInputChange}
-                placeholder="$1000 - $5000"
-                className="bg-input border-border/50 focus:border-primary transition-colors duration-300"
-              />
+              <select name="budget" value={formData.budget} onChange={handleChange} className={inputClass + " appearance-none cursor-pointer"}>
+                <option value="" className="bg-[hsl(240_10%_8%)]">Select range</option>
+                <option value="&lt;₹10K" className="bg-[hsl(240_10%_8%)]">&lt; ₹10,000</option>
+                <option value="₹10K–₹50K" className="bg-[hsl(240_10%_8%)]">₹10K – ₹50K</option>
+                <option value="₹50K–₹1L" className="bg-[hsl(240_10%_8%)]">₹50K – ₹1L</option>
+                <option value="₹1L+" className="bg-[hsl(240_10%_8%)]">₹1L+</option>
+                <option value="Discuss" className="bg-[hsl(240_10%_8%)]">Let's discuss</option>
+              </select>
             </div>
             <div>
-              <label htmlFor="timeline" className="block text-sm font-medium mb-2">
-                Timeline
+              <label className="block font-inter text-xs text-white/40 mb-1.5">
+                <Clock className="w-3 h-3 inline mr-1" />Timeline
               </label>
-              <Input
-                id="timeline"
-                name="timeline"
-                type="text"
-                value={formData.timeline}
-                onChange={handleInputChange}
-                placeholder="2-4 weeks"
-                className="bg-input border-border/50 focus:border-primary transition-colors duration-300"
-              />
+              <select name="timeline" value={formData.timeline} onChange={handleChange} className={inputClass + " appearance-none cursor-pointer"}>
+                <option value="" className="bg-[hsl(240_10%_8%)]">Select timeline</option>
+                <option value="ASAP" className="bg-[hsl(240_10%_8%)]">ASAP</option>
+                <option value="1–2 weeks" className="bg-[hsl(240_10%_8%)]">1–2 weeks</option>
+                <option value="1 month" className="bg-[hsl(240_10%_8%)]">1 month</option>
+                <option value="2–3 months" className="bg-[hsl(240_10%_8%)]">2–3 months</option>
+                <option value="Flexible" className="bg-[hsl(240_10%_8%)]">Flexible</option>
+              </select>
             </div>
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium mb-2">
-              Project Details *
+            <label className="block font-inter text-xs text-white/40 mb-1.5">
+              <MessageSquare className="w-3 h-3 inline mr-1" />Project Details *
             </label>
-            <Textarea
-              id="message"
-              name="message"
-              required
-              value={formData.message}
-              onChange={handleInputChange}
-              placeholder="Tell me about your project, requirements, and goals..."
-              rows={4}
-              className="bg-input border-border/50 focus:border-primary transition-colors duration-300 resize-none"
-            />
+            <textarea name="message" required rows={4} value={formData.message} onChange={handleChange}
+              placeholder="Describe your project, goals, tech requirements, and any other relevant details..." className={inputClass + " resize-none"} />
           </div>
 
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full hero-button"
-          >
+          <button type="submit" disabled={isSubmitting}
+            className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
             {isSubmitting ? (
-              <>
-                <div className="animate-spin rounded-full h-4 w-4 border-2 border-current border-t-transparent mr-2"></div>
-                Sending...
-              </>
+              <><Loader2 className="w-4 h-4 animate-spin" /> Sending Request...</>
             ) : (
-              <>
-                <Send className="mr-2 h-4 w-4" />
-                Send Hire Request
-              </>
+              <><Send className="w-4 h-4" /> Send Hire Request</>
             )}
-          </Button>
+          </button>
         </form>
       </DialogContent>
     </Dialog>
