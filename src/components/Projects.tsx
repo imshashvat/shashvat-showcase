@@ -156,7 +156,7 @@ const Projects = () => {
 
                     {/* Download APK — Mobile */}
                     {project.id === 'safher' && (
-                      <a href="/SafeHer.apk" download="SafeHer.apk">
+                      <a href="https://github.com/imshashvat/shashvat-showcase/releases/download/v1.0.0/SafeHer-updated.apk" target="_blank" rel="noopener noreferrer">
                         <button className="flex items-center gap-2 text-sm px-4 py-2.5 rounded-xl font-semibold transition-all duration-250 hover:-translate-y-0.5"
                           style={{
                             background: 'hsl(142 60% 48% / 0.1)',
