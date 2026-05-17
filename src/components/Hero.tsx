@@ -37,43 +37,68 @@ const Hero = () => {
   const scrollToAbout = () => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-background">
+    <section id="hero" className="relative min-h-screen flex flex-col lg:flex-row lg:items-center overflow-hidden bg-background">
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          RIGHT PANEL — Image (only visible on lg+)
-          The image sits on the right half. A gradient
-          on its LEFT edge fades it into the dark background.
+          MOBILE IMAGE — shown above content on phones,
+          hidden on large screens (handled by desktop panel)
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <div className="block lg:hidden relative w-full h-72 sm:h-80 flex-shrink-0 mt-16">
+        <img
+          src={techImage}
+          alt="Shashvat Tripathi"
+          className="w-full h-full object-cover object-top"
+          style={{ filter: 'brightness(0.85) saturate(1.05)' }}
+        />
+        {/* Bottom fade — blends into text section */}
+        <div
+          className="absolute bottom-0 inset-x-0 h-28"
+          style={{ background: 'linear-gradient(to top, hsl(240 10% 4%) 0%, transparent 100%)' }}
+        />
+        {/* Top fade — blends into header */}
+        <div
+          className="absolute top-0 inset-x-0 h-16"
+          style={{ background: 'linear-gradient(to bottom, hsl(240 10% 4%) 0%, transparent 100%)' }}
+        />
+        {/* Left + Right subtle fades */}
+        <div
+          className="absolute inset-y-0 left-0 w-12"
+          style={{ background: 'linear-gradient(to right, hsl(240 10% 4%) 0%, transparent 100%)' }}
+        />
+        <div
+          className="absolute inset-y-0 right-0 w-12"
+          style={{ background: 'linear-gradient(to left, hsl(240 10% 4%) 0%, transparent 100%)' }}
+        />
+      </div>
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          DESKTOP RIGHT PANEL — Image (lg+ only)
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <div className="absolute right-0 top-0 h-full w-[58%] hidden lg:block pointer-events-none select-none">
-        {/* The image itself */}
         <img
           src={techImage}
           alt="Shashvat Tripathi"
           className="w-full h-full object-cover object-left"
           style={{ filter: 'brightness(0.82) saturate(1.05)' }}
         />
-
-        {/* ← LEFT EDGE: fade from background color → transparent (the key transition) */}
+        {/* ← LEFT EDGE: fade from background → transparent */}
         <div
           className="absolute inset-y-0 left-0 w-[45%]"
           style={{
             background: 'linear-gradient(to right, hsl(240 10% 4%) 0%, hsl(240 10% 4% / 0.92) 25%, hsl(240 10% 4% / 0.55) 60%, transparent 100%)',
           }}
         />
-
-        {/* TOP fade — blends into header */}
+        {/* TOP fade */}
         <div
           className="absolute top-0 inset-x-0 h-28"
           style={{ background: 'linear-gradient(to bottom, hsl(240 10% 4%) 0%, transparent 100%)' }}
         />
-
-        {/* BOTTOM fade — blends into About section */}
+        {/* BOTTOM fade */}
         <div
           className="absolute bottom-0 inset-x-0 h-36"
           style={{ background: 'linear-gradient(to top, hsl(240 10% 4%) 0%, transparent 100%)' }}
         />
-
-        {/* RIGHT edge — subtle fade at far right */}
+        {/* RIGHT edge */}
         <div
           className="absolute inset-y-0 right-0 w-16"
           style={{ background: 'linear-gradient(to left, hsl(240 10% 4% / 0.4) 0%, transparent 100%)' }}
@@ -81,22 +106,22 @@ const Hero = () => {
       </div>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          LEFT PANEL — Text content (dark background)
+          TEXT CONTENT — left on desktop, below image on mobile
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative z-10 container mx-auto px-6 sm:px-10 lg:px-14 pt-28 pb-32">
+      <div className="relative z-10 w-full container mx-auto px-5 sm:px-10 lg:px-14 pt-4 pb-24 lg:pt-28 lg:pb-32">
         <div className="max-w-lg xl:max-w-xl">
 
           {/* Status pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-8 border border-white/8 bg-white/[0.04]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-6 lg:mb-8 border border-white/8 bg-white/[0.04]">
             <span className="w-1.5 h-1.5 rounded-full bg-[hsl(142_65%_52%)] animate-pulse" />
-            <span className="font-mono text-xs text-white/50 tracking-wide">Available for Internships & Projects</span>
+            <span className="font-mono text-[11px] sm:text-xs text-white/50 tracking-wide">Available for Internships &amp; Projects</span>
           </div>
 
           {/* Name */}
-          <h1 className="font-space font-extrabold mb-5 tracking-tight leading-[1.03]">
-            <span className="block text-5xl sm:text-6xl lg:text-[3.8rem] xl:text-7xl text-white/95">Shashvat</span>
+          <h1 className="font-space font-extrabold mb-4 lg:mb-5 tracking-tight leading-[1.03]">
+            <span className="block text-4xl sm:text-5xl lg:text-[3.8rem] xl:text-7xl text-white/95">Shashvat</span>
             <span
-              className="block text-5xl sm:text-6xl lg:text-[3.8rem] xl:text-7xl"
+              className="block text-4xl sm:text-5xl lg:text-[3.8rem] xl:text-7xl"
               style={{
                 background: 'linear-gradient(120deg, hsl(270 70% 72%) 0%, hsl(195 100% 62%) 100%)',
                 WebkitBackgroundClip: 'text',
@@ -109,39 +134,39 @@ const Hero = () => {
           </h1>
 
           {/* Typewriter */}
-          <div className="flex items-center gap-2.5 mb-6">
+          <div className="flex items-center gap-2.5 mb-5 lg:mb-6">
             <span className="font-mono text-sm text-[hsl(270_55%_58%)] select-none">$</span>
-            <span className="font-mono text-lg sm:text-xl text-white/75">
+            <span className="font-mono text-base sm:text-lg text-white/75">
               {displayText}
               <span className="inline-block w-[2px] h-[1.1em] bg-[hsl(270_70%_68%)] ml-0.5 align-middle animate-[blink_1s_step-end_infinite]" />
             </span>
           </div>
 
           {/* Bio */}
-          <p className="font-inter text-white/50 text-base leading-relaxed mb-2 max-w-sm">
+          <p className="font-inter text-white/50 text-sm sm:text-base leading-relaxed mb-1.5 max-w-sm">
             Building AI that{' '}
             <span className="text-[hsl(270_65%_75%)] font-medium">protects</span>,{' '}
             <span className="text-[hsl(190_90%_60%)] font-medium">empowers</span> and{' '}
             <span className="text-[hsl(330_70%_65%)] font-medium">creates impact</span>.
           </p>
-          <p className="font-mono text-[11px] text-white/20 tracking-[0.22em] mb-10">BUILD · SOLVE · IMPACT</p>
+          <p className="font-mono text-[10px] sm:text-[11px] text-white/20 tracking-[0.22em] mb-7 lg:mb-10">BUILD · SOLVE · IMPACT</p>
 
           {/* Stats */}
-          <div className="flex gap-6 mb-10">
+          <div className="flex gap-5 sm:gap-6 mb-7 lg:mb-10">
             {[
               { value: '4+', label: 'Projects' },
               { value: '10+', label: 'Technologies' },
               { value: '∞', label: 'Curiosity' },
             ].map(s => (
               <div key={s.label}>
-                <div className="font-space text-2xl font-bold text-white/90">{s.value}</div>
-                <div className="font-inter text-xs text-white/30 mt-0.5">{s.label}</div>
+                <div className="font-space text-xl sm:text-2xl font-bold text-white/90">{s.value}</div>
+                <div className="font-inter text-[11px] text-white/30 mt-0.5">{s.label}</div>
               </div>
             ))}
           </div>
 
           {/* CTAs */}
-          <div className="flex flex-wrap gap-3 mb-10">
+          <div className="flex flex-wrap gap-3 mb-7 lg:mb-10">
             <a href={resumePdf} download="Shashvat_Resume.pdf">
               <button className="btn-primary flex items-center gap-2 group text-sm">
                 <Download className="w-4 h-4" />
@@ -176,10 +201,10 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll hint */}
+      {/* Scroll hint — hidden on mobile to save space */}
       <button
         onClick={scrollToAbout}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/20 hover:text-white/40 transition-colors duration-300"
+        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2 text-white/20 hover:text-white/40 transition-colors duration-300"
         aria-label="Scroll to about"
       >
         <span className="font-mono text-[10px] tracking-[0.18em] uppercase">Scroll</span>
