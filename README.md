@@ -8,7 +8,7 @@ A premium, dark-themed developer portfolio built with React + TypeScript + Vite.
 
 ## 🚀 Live Portfolio
 
-**[→ shashvat.dev](https://www.shashvattensor.in/)** *(deploy link)*
+**[→ https://www.shashvattensor.in/](https://www.shashvattensor.in/)** *(deploy link)*
 
 ---
 
